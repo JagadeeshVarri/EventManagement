@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Add Event</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css"> -->
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
+</head>
+<body class="bg-dark" >
+<div class="container-fluid header text-center bg-warning">
+<h1 style="color: dark; border-radius:10px">Event Details</h1>
+</div>
+<hr>
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 box bg-dark">
+    <center><h1 style="color: white ;margin-right: 30px; border-radius:10px"> Add Event</h1></center>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <div class="inputbox">
+            <form action="{% url 'scmapp:db_add_event' %}" method="post">
+              {% csrf_token %}
+              <div style="color:yellow">
+              Name of event<br>
+              {% comment %} <input type="text" name="name" autocomplete="off" required><br> {% endcomment %}
+
+
+            <select name="name" id="event" style="border-radius:10px padding:5px; margin:3px">
+              <option value="Marriage">Marriage</option>
+              <option value="Birthday">Birthday</option>
+              <option value="Exams">Exams</option>
+            </select><br>
+
+              Name<br>
+              <input type="text" name="pname" autocomplete="off" required><br>
+
+              Date<br>
+              <input type="date" name="date" autocomplete="off" required><br>
+
+              Time<br>
+              <input type="time" name="time" required>
+
+              Duration(hours)<br>
+              <input type="number" name="duration" autocomplete="off" required>
+              </div>
+              <div class="footer">
+                <input type="reset" value="Reset" name="submit" >
+                <input type="submit" value="Add" name="submit" >
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+      <a href="{% url 'scmapp:admin_event' %}" class="btn btn-warning" style="color: white;">Back</a>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
