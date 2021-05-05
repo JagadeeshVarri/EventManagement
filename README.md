@@ -30,5 +30,5 @@ Functionalities provided by this webapp are:
   
   
 4.Output Screens:
-  
+ ![Search Event](https://github.com/JagadeeshVarri/EventManagement/blob/project/Output%20Screens/Screenshot%20from%202021-05-05%2007-41-05.png)
       
